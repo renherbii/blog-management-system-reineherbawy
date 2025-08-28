@@ -1,0 +1,10 @@
+2025/08/28 15:31:09 [error] [exception.CHttpException.400] CHttpException: The CSRF token could not be verified. in C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CHttpRequest.php:1400
+Stack trace:
+#0 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CComponent.php(559): CHttpRequest->validateCsrfToken(Object(CEvent))
+#1 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CApplication.php(212): CComponent->raiseEvent('onbeginrequest', Object(CEvent))
+#2 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CApplication.php(183): CApplication->onBeginRequest(Object(CEvent))
+#3 C:\xampp74\htdocs\blogmanagement\index.php(17): CApplication->run()
+#4 {main}
+REQUEST_URI=/blogmanagement/index.php/gii/crud/index
+HTTP_REFERER=http://localhost/blogmanagement/index.php/gii/crud/index
+---
