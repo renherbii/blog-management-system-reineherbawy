@@ -25,25 +25,27 @@ class PostController extends Controller
 	 * @return array access control rules
 	 */
 	public function accessRules()
-	{
-		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
-				'users'=>array('*'),
-			),
-			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
-				'users'=>array('@'),
-			),
-			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
-				'users'=>array('admin'),
-			),
-			array('deny',  // deny all users
-				'users'=>array('*'),
-			),
-		);
-	}
+{
+    return array(
+        array('allow',
+            'actions'=>array('index','view'),
+            'users'=>array('*'),
+        ),
+
+        array('allow',
+            'actions'=>array('create','update'),
+            'expression'=>'!Yii::app()->user->isGuest && in_array(Yii::app()->user->role, array("editor","admin"))',
+        ),
+
+        array('allow',
+            'actions'=>array('admin','delete'),
+            'expression'=>'!Yii::app()->user->isGuest && Yii::app()->user->role==="admin"',
+        ),
+
+        array('deny','users'=>array('*')),
+    );
+}
+
 
 	/**
 	 * Displays a particular model.
@@ -86,23 +88,22 @@ class PostController extends Controller
 	 * @param integer $id the ID of the model to be updated
 	 */
 	public function actionUpdate($id)
-	{
-		$model=$this->loadModel($id);
+{
+    $model = $this->loadModel($id);
 
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+    if (Yii::app()->user->role === 'editor' && $model->author_id != Yii::app()->user->id) {
+        throw new CHttpException(403, 'You are not allowed to edit this post.');
+    }
 
-		if(isset($_POST['Post']))
-		{
-			$model->attributes=$_POST['Post'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
-		}
+    if (isset($_POST['Post'])) {
+        $model->attributes = $_POST['Post'];
+        if ($model->save())
+            $this->redirect(array('view','id'=>$model->id));
+    }
 
-		$this->render('update',array(
-			'model'=>$model,
-		));
-	}
+    $this->render('update', array('model'=>$model));
+}
+
 
 	/**
 	 * Deletes a particular model.
@@ -122,12 +123,14 @@ class PostController extends Controller
 	 * Lists all models.
 	 */
 	public function actionIndex()
-	{
-		$dataProvider=new CActiveDataProvider('Post');
-		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
-		));
-	}
+{
+    $dataProvider = new CActiveDataProvider('Post', array(
+        'pagination' => array('pageSize' => 10),
+        'criteria'   => array('order' => 'created_at DESC'),
+    ));
+    $this->render('index', array('dataProvider' => $dataProvider));
+}
+
 
 	/**
 	 * Manages all models.
