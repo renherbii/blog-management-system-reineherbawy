@@ -31,12 +31,14 @@ class Comment extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('post_id, comment_text, user_name, created_at', 'required'),
+			array('post_id, comment_text, user_name', 'required'),
 			array('post_id', 'numerical', 'integerOnly'=>true),
 			array('user_name', 'length', 'max'=>100),
+			array('comment_text', 'length', 'min'=>1),
+			array('user_name, comment_text', 'filter', 'filter'=>'trim'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, post_id, comment_text, user_name, created_at', 'safe', 'on'=>'search'),
+			array('id, post_id, user_name', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -48,7 +50,7 @@ class Comment extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'post' => array(self::BELONGS_TO, 'Posts', 'post_id'),
+			'post' => array(self::BELONGS_TO, 'Post', 'post_id'),
 		);
 	}
 

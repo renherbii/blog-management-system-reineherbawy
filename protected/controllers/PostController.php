@@ -24,7 +24,7 @@ class PostController extends Controller
 	 * This method is used by the 'accessControl' filter.
 	 * @return array access control rules
 	 */
-	public function accessRules()
+public function accessRules()
 {
     return array(
         array('allow',
@@ -34,12 +34,12 @@ class PostController extends Controller
 
         array('allow',
             'actions'=>array('create','update'),
-            'expression'=>'!Yii::app()->user->isGuest && in_array(Yii::app()->user->role, array("editor","admin"))',
+            'expression'=>'!Yii::app()->user->isGuest && in_array(Yii::app()->user->getState("role"), array("editor","admin"))',
         ),
 
         array('allow',
             'actions'=>array('admin','delete'),
-            'expression'=>'!Yii::app()->user->isGuest && Yii::app()->user->role==="admin"',
+            'expression'=>'!Yii::app()->user->isGuest && Yii::app()->user->getState("role")==="admin"',
         ),
 
         array('deny','users'=>array('*')),
@@ -52,11 +52,36 @@ class PostController extends Controller
 	 * @param integer $id the ID of the model to be displayed
 	 */
 	public function actionView($id)
-	{
-		$this->render('view',array(
-			'model'=>$this->loadModel($id),
-		));
-	}
+{
+    $post = $this->loadModel($id);
+    $comment = new Comment;
+    $comment->post_id = (int)$id;
+
+    if (isset($_POST['ajax']) && $_POST['ajax'] === 'comment-form') {
+        echo CActiveForm::validate($comment);
+        Yii::app()->end();
+    }
+
+    if (isset($_POST['Comment'])) {
+        $comment->attributes = $_POST['Comment'];
+        $comment->post_id = $post->id;
+
+        if ($comment->save()) {
+            if (Yii::app()->request->isAjaxRequest) {
+                $this->renderPartial('_comment', array('data'=>$comment), false, true);
+                Yii::app()->end();
+            } else {
+                $this->redirect(array('view','id'=>$post->id));
+            }
+        }
+    }
+
+    $this->render('view', array(
+        'model'   => $post,
+        'comment' => $comment,
+    ));
+}
+
 
 	/**
 	 * Creates a new model.
@@ -91,9 +116,10 @@ class PostController extends Controller
 {
     $model = $this->loadModel($id);
 
-    if (Yii::app()->user->role === 'editor' && $model->author_id != Yii::app()->user->id) {
-        throw new CHttpException(403, 'You are not allowed to edit this post.');
-    }
+    if (Yii::app()->user->getState('role') === 'editor' && $model->author_id != Yii::app()->user->id) {
+    throw new CHttpException(403, 'You are not allowed to edit this post.');
+}
+
 
     if (isset($_POST['Post'])) {
         $model->attributes = $_POST['Post'];

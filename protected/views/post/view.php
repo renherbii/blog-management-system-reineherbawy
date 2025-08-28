@@ -19,13 +19,20 @@ $this->menu=array(
 <h1>View Post #<?php echo $model->id; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
-	'data'=>$model,
-	'attributes'=>array(
-		'id',
-		'title',
-		'content',
-		'author_id',
-		'created_at',
-		'updated_at',
-	),
+  'data'=>$model,
+  'attributes'=>array(
+    'id',
+    'title',
+    array(
+      'label'=>'Author',
+      'value'=>$model->author ? $model->author->username : '',
+    ),
+    'created_at',
+    'updated_at',
+  ),
 )); ?>
+
+<?php echo nl2br(CHtml::encode($model->content)); ?>
+
+<?php $this->renderPartial('_comments', array('model'=>$model)); ?>
+<?php $this->renderPartial('_commentForm', array('model'=>$model, 'comment'=>$comment)); ?>
