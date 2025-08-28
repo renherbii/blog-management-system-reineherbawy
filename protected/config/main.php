@@ -38,12 +38,15 @@ return array(
 	'components'=>array(
 
 		'user'=>array(
-			'allowAutoLogin'=>true,
+    	'class'=>'WebUser',          
+    	'allowAutoLogin'=>true,
+    	'loginUrl'=>array('site/login'),
 		),
+
 		
 		'urlManager'=>array(
-    'urlFormat'=>'path',
-    'rules'=>array(
+    	'urlFormat'=>'path',
+    	'rules'=>array(
         // Allow module/controller/action style routes
         '<module:\w+>/<controller:\w+>/<action:\w+>'=>'<module>/<controller>/<action>',
 

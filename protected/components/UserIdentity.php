@@ -7,6 +7,7 @@
  */
 class UserIdentity extends CUserIdentity
 {
+	   private $_id;
 	/**
 	 * Authenticates a user.
 	 * The example implementation makes sure if the username and password
@@ -16,18 +17,35 @@ class UserIdentity extends CUserIdentity
 	 * @return boolean whether authentication succeeds.
 	 */
 	public function authenticate()
-	{
-		$users=array(
-			// username => password
-			'demo'=>'demo',
-			'admin'=>'admin',
-		);
-		if(!isset($users[$this->username]))
-			$this->errorCode=self::ERROR_USERNAME_INVALID;
-		elseif($users[$this->username]!==$this->password)
-			$this->errorCode=self::ERROR_PASSWORD_INVALID;
-		else
-			$this->errorCode=self::ERROR_NONE;
-		return !$this->errorCode;
-	}
+    {
+        $user = User::model()->find('username=:u', array(':u'=>$this->username));
+
+        if (!$user) {
+            $this->errorCode = self::ERROR_USERNAME_INVALID;
+            return !$this->errorCode;
+        }
+
+        if (class_exists('CPasswordHelper')) {
+            $valid = CPasswordHelper::verifyPassword($this->password, $user->password);
+        } else {
+            $valid = password_verify($this->password, $user->password);
+        }
+
+        if (!$valid) {
+            $this->errorCode = self::ERROR_PASSWORD_INVALID;
+            return !$this->errorCode;
+        }
+
+        $this->_id = (int)$user->id;
+        $this->setState('role', $user->role); 
+        $this->setState('username', $user->username);
+
+        $this->errorCode = self::ERROR_NONE;
+        return !$this->errorCode;
+    }
+
+    public function getId()
+    {
+        return $this->_id;
+    }
 }

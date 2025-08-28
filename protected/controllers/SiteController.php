@@ -75,28 +75,53 @@ class SiteController extends Controller
 	/**
 	 * Displays the login page
 	 */
+public function actionRegister()
+{
+    $model = new User;
+
+    if (isset($_POST['User'])) {
+        $model->attributes = $_POST['User'];
+        $model->role = 'editor'; // Default role
+        $model->created_at = date('Y-m-d H:i:s'); // Set early
+
+        if ($model->validate()) {
+            // ✅ Hash password only after validation
+            $model->password = password_hash($model->password, PASSWORD_DEFAULT);
+
+            if ($model->save(false)) {
+                Yii::app()->user->setFlash('success', 'Registration successful. You can now log in.');
+                $this->redirect(array('site/login'));
+            } else {
+                Yii::app()->user->setFlash('error', 'Registration failed while saving.');
+            }
+        }
+    }
+
+    $this->render('register', array('model' => $model));
+}
+
+
+
+
+
 	public function actionLogin()
-	{
-		$model=new LoginForm;
+{
+    $model = new LoginForm;
 
-		// if it is ajax validation request
-		if(isset($_POST['ajax']) && $_POST['ajax']==='login-form')
-		{
-			echo CActiveForm::validate($model);
-			Yii::app()->end();
-		}
+    if (isset($_POST['ajax']) && $_POST['ajax'] === 'login-form') {
+        echo CActiveForm::validate($model);
+        Yii::app()->end();
+    }
 
-		// collect user input data
-		if(isset($_POST['LoginForm']))
-		{
-			$model->attributes=$_POST['LoginForm'];
-			// validate user input and redirect to the previous page if valid
-			if($model->validate() && $model->login())
-				$this->redirect(Yii::app()->user->returnUrl);
-		}
-		// display the login form
-		$this->render('login',array('model'=>$model));
-	}
+    if (isset($_POST['LoginForm'])) {
+        $model->attributes = $_POST['LoginForm'];
+        if ($model->validate() && $model->login()) {
+            $this->redirect(Yii::app()->user->returnUrl);
+        }
+    }
+
+    $this->render('login', array('model'=>$model));
+}
 
 	/**
 	 * Logs out the current user and redirect to homepage.
@@ -111,5 +136,7 @@ class SiteController extends Controller
     echo $v === '1' || $v === 1 ? 'DB OK' : 'DB Problem';
     Yii::app()->end();
 }
+
+
 
 }

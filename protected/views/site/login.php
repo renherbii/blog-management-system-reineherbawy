@@ -49,5 +49,8 @@ $this->breadcrumbs=array(
 		<?php echo CHtml::submitButton('Login'); ?>
 	</div>
 
+	<p>Don’t have an account? <?php echo CHtml::link('Register here', array('site/register')); ?></p>
+
+
 <?php $this->endWidget(); ?>
 </div><!-- form -->

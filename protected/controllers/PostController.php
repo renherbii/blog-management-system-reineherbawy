@@ -112,14 +112,9 @@ public function accessRules()
 	 * If update is successful, the browser will be redirected to the 'view' page.
 	 * @param integer $id the ID of the model to be updated
 	 */
-	public function actionUpdate($id)
+public function actionUpdate($id)
 {
-    $model = $this->loadModel($id);
-
-    if (Yii::app()->user->getState('role') === 'editor' && $model->author_id != Yii::app()->user->id) {
-    throw new CHttpException(403, 'You are not allowed to edit this post.');
-}
-
+    $model = $this->loadModel($id); // already checks if editor owns the post
 
     if (isset($_POST['Post'])) {
         $model->attributes = $_POST['Post'];
@@ -129,6 +124,7 @@ public function accessRules()
 
     $this->render('update', array('model'=>$model));
 }
+
 
 
 	/**
@@ -180,13 +176,25 @@ public function accessRules()
 	 * @return Post the loaded model
 	 * @throws CHttpException
 	 */
-	public function loadModel($id)
-	{
-		$model=Post::model()->findByPk($id);
-		if($model===null)
-			throw new CHttpException(404,'The requested page does not exist.');
-		return $model;
-	}
+public function loadModel($id)
+{
+    $model = Post::model()->findByPk($id);
+
+    if ($model === null)
+        throw new CHttpException(404, 'The requested page does not exist.');
+
+    // Only check for ownership if editor is trying to UPDATE
+    if (
+        Yii::app()->controller->action->id === 'update' &&
+        Yii::app()->user->getState("role") === 'editor' &&
+        $model->author_id !== Yii::app()->user->id
+    ) {
+        throw new CHttpException(403, 'You are not allowed to update this post.');
+    }
+
+    return $model;
+}
+
 
 	/**
 	 * Performs the AJAX validation.
