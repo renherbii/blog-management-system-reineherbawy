@@ -14,8 +14,8 @@ class PostController extends Controller
 	public function filters()
 	{
 		return array(
-			'accessControl', // perform access control for CRUD operations
-			'postOnly + delete', // we only allow deletion via POST request
+			'accessControl', 
+			'postOnly + delete',
 		);
 	}
 
@@ -136,7 +136,6 @@ public function actionUpdate($id)
 	{
 		$this->loadModel($id)->delete();
 
-		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))
 			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
 	}
@@ -160,7 +159,7 @@ public function actionUpdate($id)
 	public function actionAdmin()
 	{
 		$model=new Post('search');
-		$model->unsetAttributes();  // clear any default values
+		$model->unsetAttributes(); 
 		if(isset($_GET['Post']))
 			$model->attributes=$_GET['Post'];
 
@@ -183,7 +182,6 @@ public function loadModel($id)
     if ($model === null)
         throw new CHttpException(404, 'The requested page does not exist.');
 
-    // Only check for ownership if editor is trying to UPDATE
     if (
         Yii::app()->controller->action->id === 'update' &&
         Yii::app()->user->getState("role") === 'editor' &&

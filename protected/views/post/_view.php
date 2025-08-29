@@ -1,8 +1,3 @@
-<?php
-/* @var $this PostController */
-/* @var $data Post */
-?>
-
 <div class="view">
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
@@ -29,5 +24,30 @@
 	<?php echo CHtml::encode($data->updated_at); ?>
 	<br />
 
+	<?php if (!Yii::app()->user->isGuest): ?>
+		<div style="margin-top: 10px;">
+			<?php
+			$role = Yii::app()->user->getState('role');
+			if (in_array($role, array('admin', 'editor'))):
+				echo CHtml::link('Update', Yii::app()->createUrl('post/update', array('id' => $data->id)));
+
+			endif;
+
+			if ($role === 'admin') {
+				echo ' | ';
+				echo CHtml::link('Delete', '#', array(
+  				'submit' => array('post/delete', 'id' => $data->id),
+  				'params' => array(
+    			Yii::app()->request->csrfTokenName => Yii::app()->request->csrfToken,
+  				),
+  				'confirm' => 'Are you sure you want to delete this post?',
+				));
+
+
+
+			}
+			?>
+		</div>
+	<?php endif; ?>
 
 </div>

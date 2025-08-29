@@ -81,11 +81,10 @@ public function actionRegister()
 
     if (isset($_POST['User'])) {
         $model->attributes = $_POST['User'];
-        $model->role = 'editor'; // Default role
-        $model->created_at = date('Y-m-d H:i:s'); // Set early
+        $model->role = 'editor';
+        $model->created_at = date('Y-m-d H:i:s');
 
         if ($model->validate()) {
-            // ✅ Hash password only after validation
             $model->password = password_hash($model->password, PASSWORD_DEFAULT);
 
             if ($model->save(false)) {
@@ -100,10 +99,6 @@ public function actionRegister()
     $this->render('register', array('model' => $model));
 }
 
-
-
-
-
 	public function actionLogin()
 {
     $model = new LoginForm;
@@ -116,7 +111,8 @@ public function actionRegister()
     if (isset($_POST['LoginForm'])) {
         $model->attributes = $_POST['LoginForm'];
         if ($model->validate() && $model->login()) {
-            $this->redirect(Yii::app()->user->returnUrl);
+            $this->redirect(array('post/index'));
+
         }
     }
 

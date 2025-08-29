@@ -33,34 +33,27 @@ return array(
 		
 	),
 	
-
-	// application components
 	'components'=>array(
-
 		'user'=>array(
     	'class'=>'WebUser',          
     	'allowAutoLogin'=>true,
     	'loginUrl'=>array('site/login'),
 		),
-
-		
+		'db' => array(
+    		'connectionString' => 'mysql:host=127.0.0.1;port=3307;dbname=blogmanagement',
+    		'username' => 'bloguser',
+    		'password' => 'StrongPass123!',
+    		'charset' => 'utf8',
+    		'emulatePrepare' => true,
+	  ),
 		'urlManager'=>array(
-    	'urlFormat'=>'path',
-    	'rules'=>array(
-        // Allow module/controller/action style routes
-        '<module:\w+>/<controller:\w+>/<action:\w+>'=>'<module>/<controller>/<action>',
+    		'urlFormat'=>'get', 
+    		'showScriptName'=>true,  
+		),
 
-        // Default controller rules
-        '<controller:\w+>/<id:\d+>'=>'<controller>/view',
-        '<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
-        '<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
-    ),
-),
-
-		
 
 		// database settings are configured in database.php
-		'db'=>require(dirname(__FILE__).'/database.php'),
+
 
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors

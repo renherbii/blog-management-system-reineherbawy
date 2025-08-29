@@ -5,4 +5,9 @@ class WebUser extends CWebUser
     {
         return $this->getState('role'); 
     }
+    public function getId()
+{
+    return $this->getState('id');
+}
+
 }

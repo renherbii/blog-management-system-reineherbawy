@@ -1,20 +1,21 @@
-<?php
-/* @var $this SiteController */
+<h1>Welcome to the Blog Management System</h1>
 
-$this->pageTitle=Yii::app()->name;
-?>
+<p>
+    This is a role-based blog platform where:
+    <ul>
+        <li><strong>Admins</strong> can create, update, and delete posts.</li>
+        <li><strong>Editors</strong> can create and update their own posts.</li>
+        <li><strong>Users</strong> can read posts and comment.</li>
+    </ul>
+</p>
 
-<h1>Welcome to <i><?php echo CHtml::encode(Yii::app()->name); ?></i></h1>
+<p>
+    Click the button below to go to the full list of posts.
+</p>
 
-<p>Congratulations! You have successfully created your Yii application.</p>
-
-<p>You may change the content of this page by modifying the following two files:</p>
-<ul>
-	<li>View file: <code><?php echo __FILE__; ?></code></li>
-	<li>Layout file: <code><?php echo $this->getLayoutFile('main'); ?></code></li>
-</ul>
-
-<p>For more details on how to further develop this application, please read
-the <a href="https://www.yiiframework.com/doc/">documentation</a>.
-Feel free to ask in the <a href="https://www.yiiframework.com/forum/">forum</a>,
-should you have any questions.</p>
+<p>
+    <?php echo CHtml::link('View All Posts', array('post/index'), array(
+        'class'=>'btn btn-primary',
+        'style'=>'padding: 10px 20px; background-color: #337ab7; color: white; text-decoration: none; border-radius: 5px;'
+    )); ?>
+</p>

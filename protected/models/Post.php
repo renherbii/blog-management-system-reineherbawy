@@ -125,5 +125,18 @@ class Post extends CActiveRecord
 		return parent::model($className);
 	}
 
-	
+	protected function beforeSave()
+{
+    if (parent::beforeSave()) {
+        if ($this->isNewRecord) {
+            $this->created_at = new CDbExpression('NOW()');
+        } else {
+            $this->updated_at = new CDbExpression('NOW()');
+        }
+        return true;
+    } else {
+        return false;
+    }
+}
+
 }

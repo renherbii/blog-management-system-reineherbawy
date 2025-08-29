@@ -1,0 +1,18 @@
+# Yii
+/protected/runtime/
+/assets/
+/protected/data/
+/protected/config/db.php
+/protected/config/main-local.php
+/protected/config/database.php
+
+# System / Editor junk
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+nbproject/
+
+# Composer
+/vendor/
+/composer.lock

@@ -27,19 +27,19 @@ class UserController extends Controller
 	public function accessRules()
 	{
 		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
+			array('allow',  
 				'actions'=>array('index','view'),
 				'users'=>array('*'),
 			),
-			array('allow', // allow authenticated user to perform 'create' and 'update' actions
+			array('allow', 
 				'actions'=>array('create','update'),
 				'users'=>array('@'),
 			),
-			array('allow', // allow admin user to perform 'admin' and 'delete' actions
+			array('allow', 
 				'actions'=>array('admin','delete'),
 				'users'=>array('admin'),
 			),
-			array('deny',  // deny all users
+			array('deny', 
 				'users'=>array('*'),
 			),
 		);
@@ -134,7 +134,7 @@ class UserController extends Controller
 	public function actionAdmin()
 	{
 		$model=new User('search');
-		$model->unsetAttributes();  // clear any default values
+		$model->unsetAttributes(); 
 		if(isset($_GET['User']))
 			$model->attributes=$_GET['User'];
 

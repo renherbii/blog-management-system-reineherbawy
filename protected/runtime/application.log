@@ -534,3 +534,644 @@ Stack trace:
 REQUEST_URI=/blogmanagement/index.php/post/delete/4
 HTTP_REFERER=http://localhost/blogmanagement/index.php/post/4
 ---
+2025/08/29 14:39:23 [error] [exception.CDbException] CDbException: CDbConnection failed to open the DB connection: SQLSTATE[HY000] [1044] Access denied for user 'bloguser'@'localhost' to database 'blogmanagement' in C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\CDbConnection.php:399
+Stack trace:
+#0 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\CDbConnection.php(347): CDbConnection->open()
+#1 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\CDbConnection.php(325): CDbConnection->setActive(true)
+#2 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CModule.php(394): CDbConnection->init()
+#3 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CApplication.php(459): CModule->getComponent('db')
+#4 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\ar\CActiveRecord.php(639): CApplication->getDb()
+#5 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\ar\CActiveRecord.php(1436): CActiveRecord->getDbConnection()
+#6 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\ar\CActiveRecord.php(1492): CActiveRecord->getTableAlias(true)
+#7 C:\xampp74\htdocs\blogmanagement\protected\controllers\PostController.php(181): CActiveRecord->findByPk('4')
+#8 C:\xampp74\htdocs\blogmanagement\protected\controllers\PostController.php(56): PostController->loadModel('4')
+#9 [internal function]: PostController->actionView('4')
+#10 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\actions\CAction.php(114): ReflectionMethod->invokeArgs(Object(PostController), Array)
+#11 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(PostController), Object(ReflectionMethod), Array)
+#12 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#13 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#14 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#15 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#16 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#17 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#18 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(291): CFilterChain->run()
+#19 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php(282): CController->run('view')
+#21 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php(141): CWebApplication->runController('post/view')
+#22 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#23 C:\xampp74\htdocs\blogmanagement\index.php(17): CApplication->run()
+#24 {main}
+REQUEST_URI=/blogmanagement/index.php/post/4
+HTTP_REFERER=http://localhost/blogmanagement/index.php/post/create
+---
+2025/08/29 14:40:02 [error] [exception.CDbException] CDbException: CDbConnection failed to open the DB connection: SQLSTATE[HY000] [1044] Access denied for user 'bloguser'@'localhost' to database 'blogmanagement' in C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\CDbConnection.php:399
+Stack trace:
+#0 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\CDbConnection.php(347): CDbConnection->open()
+#1 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\CDbConnection.php(325): CDbConnection->setActive(true)
+#2 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CModule.php(394): CDbConnection->init()
+#3 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CApplication.php(459): CModule->getComponent('db')
+#4 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\ar\CActiveRecord.php(639): CApplication->getDb()
+#5 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\ar\CActiveRecord.php(672): CActiveRecord->getDbConnection()
+#6 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\ar\CActiveRecord.php(1463): CActiveRecord->getCommandBuilder()
+#7 C:\xampp74\htdocs\blogmanagement\protected\components\UserIdentity.php(21): CActiveRecord->find('username=:u', Array)
+#8 C:\xampp74\htdocs\blogmanagement\protected\models\LoginForm.php(54): UserIdentity->authenticate()
+#9 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\validators\CInlineValidator.php(42): LoginForm->authenticate('password', Array)
+#10 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\validators\CValidator.php(201): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#11 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CModel.php(159): CValidator->validate(Object(LoginForm), Array)
+#12 C:\xampp74\htdocs\blogmanagement\protected\controllers\SiteController.php(118): CModel->validate()
+#13 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\actions\CInlineAction.php(49): SiteController->actionLogin()
+#14 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#15 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#16 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php(282): CController->run('login')
+#18 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php(141): CWebApplication->runController('site/login')
+#19 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#20 C:\xampp74\htdocs\blogmanagement\index.php(17): CApplication->run()
+#21 {main}
+REQUEST_URI=/blogmanagement/index.php/site/login
+HTTP_REFERER=http://localhost/blogmanagement/index.php/site/login
+---
+2025/08/29 14:40:13 [error] [exception.CDbException] CDbException: CDbConnection failed to open the DB connection: SQLSTATE[HY000] [1044] Access denied for user 'bloguser'@'localhost' to database 'blogmanagement' in C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\CDbConnection.php:399
+Stack trace:
+#0 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\CDbConnection.php(347): CDbConnection->open()
+#1 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\CDbConnection.php(325): CDbConnection->setActive(true)
+#2 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CModule.php(394): CDbConnection->init()
+#3 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CApplication.php(459): CModule->getComponent('db')
+#4 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\ar\CActiveRecord.php(639): CApplication->getDb()
+#5 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\ar\CActiveRecord.php(2390): CActiveRecord->getDbConnection()
+#6 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\ar\CActiveRecord.php(413): CActiveRecordMetaData->__construct(Object(User))
+#7 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\ar\CActiveRecord.php(79): CActiveRecord->getMetaData()
+#8 C:\xampp74\htdocs\blogmanagement\protected\controllers\SiteController.php(80): CActiveRecord->__construct()
+#9 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\actions\CInlineAction.php(49): SiteController->actionRegister()
+#10 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#12 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php(282): CController->run('register')
+#14 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php(141): CWebApplication->runController('site/register')
+#15 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#16 C:\xampp74\htdocs\blogmanagement\index.php(17): CApplication->run()
+#17 {main}
+REQUEST_URI=/blogmanagement/index.php/site/register
+---
+2025/08/29 14:40:27 [error] [exception.CDbException] CDbException: CDbConnection failed to open the DB connection: SQLSTATE[HY000] [1044] Access denied for user 'bloguser'@'localhost' to database 'blogmanagement' in C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\CDbConnection.php:399
+Stack trace:
+#0 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\CDbConnection.php(347): CDbConnection->open()
+#1 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\CDbConnection.php(325): CDbConnection->setActive(true)
+#2 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CModule.php(394): CDbConnection->init()
+#3 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CApplication.php(459): CModule->getComponent('db')
+#4 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\ar\CActiveRecord.php(639): CApplication->getDb()
+#5 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\ar\CActiveRecord.php(672): CActiveRecord->getDbConnection()
+#6 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\ar\CActiveRecord.php(1463): CActiveRecord->getCommandBuilder()
+#7 C:\xampp74\htdocs\blogmanagement\protected\components\UserIdentity.php(21): CActiveRecord->find('username=:u', Array)
+#8 C:\xampp74\htdocs\blogmanagement\protected\models\LoginForm.php(54): UserIdentity->authenticate()
+#9 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\validators\CInlineValidator.php(42): LoginForm->authenticate('password', Array)
+#10 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\validators\CValidator.php(201): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#11 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CModel.php(159): CValidator->validate(Object(LoginForm), Array)
+#12 C:\xampp74\htdocs\blogmanagement\protected\controllers\SiteController.php(118): CModel->validate()
+#13 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\actions\CInlineAction.php(49): SiteController->actionLogin()
+#14 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#15 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#16 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php(282): CController->run('login')
+#18 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php(141): CWebApplication->runController('site/login')
+#19 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#20 C:\xampp74\htdocs\blogmanagement\index.php(17): CApplication->run()
+#21 {main}
+REQUEST_URI=/blogmanagement/index.php/site/login
+HTTP_REFERER=http://localhost/blogmanagement/index.php/site/login
+---
+2025/08/29 14:41:30 [error] [exception.CDbException] CDbException: CDbConnection failed to open the DB connection: SQLSTATE[HY000] [1044] Access denied for user 'bloguser'@'localhost' to database 'blogmanagement' in C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\CDbConnection.php:399
+Stack trace:
+#0 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\CDbConnection.php(347): CDbConnection->open()
+#1 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\CDbConnection.php(325): CDbConnection->setActive(true)
+#2 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CModule.php(394): CDbConnection->init()
+#3 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CApplication.php(459): CModule->getComponent('db')
+#4 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\ar\CActiveRecord.php(639): CApplication->getDb()
+#5 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\ar\CActiveRecord.php(672): CActiveRecord->getDbConnection()
+#6 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\ar\CActiveRecord.php(1463): CActiveRecord->getCommandBuilder()
+#7 C:\xampp74\htdocs\blogmanagement\protected\components\UserIdentity.php(21): CActiveRecord->find('username=:u', Array)
+#8 C:\xampp74\htdocs\blogmanagement\protected\models\LoginForm.php(54): UserIdentity->authenticate()
+#9 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\validators\CInlineValidator.php(42): LoginForm->authenticate('password', Array)
+#10 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\validators\CValidator.php(201): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#11 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CModel.php(159): CValidator->validate(Object(LoginForm), Array)
+#12 C:\xampp74\htdocs\blogmanagement\protected\controllers\SiteController.php(118): CModel->validate()
+#13 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\actions\CInlineAction.php(49): SiteController->actionLogin()
+#14 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#15 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#16 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php(282): CController->run('login')
+#18 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php(141): CWebApplication->runController('site/login')
+#19 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#20 C:\xampp74\htdocs\blogmanagement\index.php(17): CApplication->run()
+#21 {main}
+REQUEST_URI=/blogmanagement/index.php/site/login
+HTTP_REFERER=http://localhost/blogmanagement/index.php/site/login
+---
+2025/08/29 14:42:20 [error] [exception.CDbException] CDbException: CDbConnection failed to open the DB connection: SQLSTATE[HY000] [1044] Access denied for user 'bloguser'@'localhost' to database 'blogmanagement' in C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\CDbConnection.php:399
+Stack trace:
+#0 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\CDbConnection.php(347): CDbConnection->open()
+#1 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\CDbConnection.php(325): CDbConnection->setActive(true)
+#2 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CModule.php(394): CDbConnection->init()
+#3 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CApplication.php(459): CModule->getComponent('db')
+#4 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\ar\CActiveRecord.php(639): CApplication->getDb()
+#5 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\ar\CActiveRecord.php(672): CActiveRecord->getDbConnection()
+#6 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\ar\CActiveRecord.php(1463): CActiveRecord->getCommandBuilder()
+#7 C:\xampp74\htdocs\blogmanagement\protected\components\UserIdentity.php(21): CActiveRecord->find('username=:u', Array)
+#8 C:\xampp74\htdocs\blogmanagement\protected\models\LoginForm.php(54): UserIdentity->authenticate()
+#9 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\validators\CInlineValidator.php(42): LoginForm->authenticate('password', Array)
+#10 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\validators\CValidator.php(201): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#11 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CModel.php(159): CValidator->validate(Object(LoginForm), Array)
+#12 C:\xampp74\htdocs\blogmanagement\protected\controllers\SiteController.php(118): CModel->validate()
+#13 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\actions\CInlineAction.php(49): SiteController->actionLogin()
+#14 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#15 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#16 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php(282): CController->run('login')
+#18 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php(141): CWebApplication->runController('site/login')
+#19 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#20 C:\xampp74\htdocs\blogmanagement\index.php(17): CApplication->run()
+#21 {main}
+REQUEST_URI=/blogmanagement/index.php/site/login
+HTTP_REFERER=http://localhost/blogmanagement/index.php/site/login
+---
+2025/08/29 15:15:51 [error] [exception.CDbException] CDbException: CDbConnection failed to open the DB connection: SQLSTATE[HY000] [1045] Access denied for user 'bloguser'@'localhost' (using password: YES) in C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\CDbConnection.php:399
+Stack trace:
+#0 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\CDbConnection.php(347): CDbConnection->open()
+#1 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\CDbConnection.php(325): CDbConnection->setActive(true)
+#2 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CModule.php(394): CDbConnection->init()
+#3 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CApplication.php(459): CModule->getComponent('db')
+#4 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\ar\CActiveRecord.php(639): CApplication->getDb()
+#5 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\ar\CActiveRecord.php(672): CActiveRecord->getDbConnection()
+#6 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\ar\CActiveRecord.php(1463): CActiveRecord->getCommandBuilder()
+#7 C:\xampp74\htdocs\blogmanagement\protected\components\UserIdentity.php(21): CActiveRecord->find('username=:u', Array)
+#8 C:\xampp74\htdocs\blogmanagement\protected\models\LoginForm.php(54): UserIdentity->authenticate()
+#9 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\validators\CInlineValidator.php(42): LoginForm->authenticate('password', Array)
+#10 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\validators\CValidator.php(201): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#11 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CModel.php(159): CValidator->validate(Object(LoginForm), Array)
+#12 C:\xampp74\htdocs\blogmanagement\protected\controllers\SiteController.php(118): CModel->validate()
+#13 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\actions\CInlineAction.php(49): SiteController->actionLogin()
+#14 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#15 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#16 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php(282): CController->run('login')
+#18 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php(141): CWebApplication->runController('site/login')
+#19 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#20 C:\xampp74\htdocs\blogmanagement\index.php(17): CApplication->run()
+#21 {main}
+REQUEST_URI=/blogmanagement/index.php/site/login
+HTTP_REFERER=http://localhost/blogmanagement/index.php/site/login
+---
+2025/08/29 15:17:33 [error] [exception.CDbException] CDbException: CDbConnection failed to open the DB connection: SQLSTATE[HY000] [1045] Access denied for user 'bloguser'@'localhost' (using password: YES) in C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\CDbConnection.php:399
+Stack trace:
+#0 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\CDbConnection.php(347): CDbConnection->open()
+#1 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\CDbConnection.php(325): CDbConnection->setActive(true)
+#2 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CModule.php(394): CDbConnection->init()
+#3 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CApplication.php(459): CModule->getComponent('db')
+#4 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\ar\CActiveRecord.php(639): CApplication->getDb()
+#5 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\ar\CActiveRecord.php(672): CActiveRecord->getDbConnection()
+#6 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\ar\CActiveRecord.php(1463): CActiveRecord->getCommandBuilder()
+#7 C:\xampp74\htdocs\blogmanagement\protected\components\UserIdentity.php(21): CActiveRecord->find('username=:u', Array)
+#8 C:\xampp74\htdocs\blogmanagement\protected\models\LoginForm.php(54): UserIdentity->authenticate()
+#9 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\validators\CInlineValidator.php(42): LoginForm->authenticate('password', Array)
+#10 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\validators\CValidator.php(201): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#11 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CModel.php(159): CValidator->validate(Object(LoginForm), Array)
+#12 C:\xampp74\htdocs\blogmanagement\protected\controllers\SiteController.php(118): CModel->validate()
+#13 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\actions\CInlineAction.php(49): SiteController->actionLogin()
+#14 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#15 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#16 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php(282): CController->run('login')
+#18 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php(141): CWebApplication->runController('site/login')
+#19 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#20 C:\xampp74\htdocs\blogmanagement\index.php(17): CApplication->run()
+#21 {main}
+REQUEST_URI=/blogmanagement/index.php/site/login
+HTTP_REFERER=http://localhost/blogmanagement/index.php/site/login
+---
+2025/08/29 15:18:09 [error] [exception.CDbException] CDbException: CDbConnection failed to open the DB connection: SQLSTATE[HY000] [1045] Access denied for user 'bloguser'@'localhost' (using password: YES) in C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\CDbConnection.php:399
+Stack trace:
+#0 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\CDbConnection.php(347): CDbConnection->open()
+#1 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\CDbConnection.php(325): CDbConnection->setActive(true)
+#2 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CModule.php(394): CDbConnection->init()
+#3 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CApplication.php(459): CModule->getComponent('db')
+#4 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\ar\CActiveRecord.php(639): CApplication->getDb()
+#5 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\ar\CActiveRecord.php(672): CActiveRecord->getDbConnection()
+#6 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\ar\CActiveRecord.php(1463): CActiveRecord->getCommandBuilder()
+#7 C:\xampp74\htdocs\blogmanagement\protected\components\UserIdentity.php(21): CActiveRecord->find('username=:u', Array)
+#8 C:\xampp74\htdocs\blogmanagement\protected\models\LoginForm.php(54): UserIdentity->authenticate()
+#9 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\validators\CInlineValidator.php(42): LoginForm->authenticate('password', Array)
+#10 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\validators\CValidator.php(201): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#11 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CModel.php(159): CValidator->validate(Object(LoginForm), Array)
+#12 C:\xampp74\htdocs\blogmanagement\protected\controllers\SiteController.php(118): CModel->validate()
+#13 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\actions\CInlineAction.php(49): SiteController->actionLogin()
+#14 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#15 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#16 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php(282): CController->run('login')
+#18 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php(141): CWebApplication->runController('site/login')
+#19 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#20 C:\xampp74\htdocs\blogmanagement\index.php(17): CApplication->run()
+#21 {main}
+REQUEST_URI=/blogmanagement/index.php/site/login
+HTTP_REFERER=http://localhost/blogmanagement/index.php/site/login
+---
+2025/08/29 15:18:29 [error] [exception.CDbException] CDbException: CDbConnection failed to open the DB connection: SQLSTATE[HY000] [1045] Access denied for user 'bloguser'@'localhost' (using password: YES) in C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\CDbConnection.php:399
+Stack trace:
+#0 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\CDbConnection.php(347): CDbConnection->open()
+#1 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\CDbConnection.php(325): CDbConnection->setActive(true)
+#2 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CModule.php(394): CDbConnection->init()
+#3 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CApplication.php(459): CModule->getComponent('db')
+#4 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\ar\CActiveRecord.php(639): CApplication->getDb()
+#5 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\ar\CActiveRecord.php(672): CActiveRecord->getDbConnection()
+#6 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\db\ar\CActiveRecord.php(1463): CActiveRecord->getCommandBuilder()
+#7 C:\xampp74\htdocs\blogmanagement\protected\components\UserIdentity.php(21): CActiveRecord->find('username=:u', Array)
+#8 C:\xampp74\htdocs\blogmanagement\protected\models\LoginForm.php(54): UserIdentity->authenticate()
+#9 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\validators\CInlineValidator.php(42): LoginForm->authenticate('password', Array)
+#10 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\validators\CValidator.php(201): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#11 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CModel.php(159): CValidator->validate(Object(LoginForm), Array)
+#12 C:\xampp74\htdocs\blogmanagement\protected\controllers\SiteController.php(118): CModel->validate()
+#13 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\actions\CInlineAction.php(49): SiteController->actionLogin()
+#14 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#15 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#16 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php(282): CController->run('login')
+#18 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php(141): CWebApplication->runController('site/login')
+#19 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#20 C:\xampp74\htdocs\blogmanagement\index.php(17): CApplication->run()
+#21 {main}
+REQUEST_URI=/blogmanagement/index.php/site/login
+HTTP_REFERER=http://localhost/blogmanagement/index.php/site/login
+---
+2025/08/29 15:19:01 [error] [exception.CHttpException.403] CHttpException: You are not authorized to perform this action. in C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\auth\CAccessControlFilter.php:183
+Stack trace:
+#0 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(WebUser), 'You are not aut...')
+#1 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php(282): CController->run('admin')
+#8 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php(141): CWebApplication->runController('post/admin')
+#9 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\xampp74\htdocs\blogmanagement\index.php(17): CApplication->run()
+#11 {main}
+REQUEST_URI=/blogmanagement/index.php/post/admin
+HTTP_REFERER=http://localhost/blogmanagement/index.php/post/index
+---
+2025/08/29 15:19:08 [error] [exception.CHttpException.400] CHttpException: Your request is invalid. in C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php:337
+Stack trace:
+#0 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#2 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php(282): CController->run('update')
+#9 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php(141): CWebApplication->runController('post/update/4')
+#10 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 C:\xampp74\htdocs\blogmanagement\index.php(17): CApplication->run()
+#12 {main}
+REQUEST_URI=/blogmanagement/index.php/post/update/4
+HTTP_REFERER=http://localhost/blogmanagement/index.php/post/4
+---
+2025/08/29 15:24:58 [error] [exception.CHttpException.400] CHttpException: Your request is invalid. in C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php:337
+Stack trace:
+#0 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#2 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php(282): CController->run('update')
+#9 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php(141): CWebApplication->runController('post/update/5')
+#10 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 C:\xampp74\htdocs\blogmanagement\index.php(17): CApplication->run()
+#12 {main}
+REQUEST_URI=/blogmanagement/index.php/post/update/5
+HTTP_REFERER=http://localhost/blogmanagement/index.php/post/5
+---
+2025/08/29 15:26:18 [error] [exception.CHttpException.400] CHttpException: The CSRF token could not be verified. in C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CHttpRequest.php:1400
+Stack trace:
+#0 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CComponent.php(559): CHttpRequest->validateCsrfToken(Object(CEvent))
+#1 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CApplication.php(212): CComponent->raiseEvent('onbeginrequest', Object(CEvent))
+#2 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CApplication.php(183): CApplication->onBeginRequest(Object(CEvent))
+#3 C:\xampp74\htdocs\blogmanagement\index.php(17): CApplication->run()
+#4 {main}
+REQUEST_URI=/blogmanagement/index.php/post/delete/5
+HTTP_REFERER=http://localhost/blogmanagement/index.php/post/5
+---
+2025/08/29 15:28:46 [error] [exception.CHttpException.400] CHttpException: Your request is invalid. in C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php:337
+Stack trace:
+#0 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#2 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php(282): CController->run('update')
+#9 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php(141): CWebApplication->runController('post/update/11')
+#10 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 C:\xampp74\htdocs\blogmanagement\index.php(17): CApplication->run()
+#12 {main}
+REQUEST_URI=/blogmanagement/index.php/post/update/11
+HTTP_REFERER=http://localhost/blogmanagement/index.php/post/admin
+---
+2025/08/29 15:38:27 [error] [exception.CHttpException.403] CHttpException: You are not authorized to perform this action. in C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\auth\CAccessControlFilter.php:183
+Stack trace:
+#0 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(WebUser), 'You are not aut...')
+#1 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php(282): CController->run('admin')
+#8 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php(141): CWebApplication->runController('post/admin')
+#9 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\xampp74\htdocs\blogmanagement\index.php(17): CApplication->run()
+#11 {main}
+REQUEST_URI=/blogmanagement/index.php/post/admin
+HTTP_REFERER=http://localhost/blogmanagement/index.php/post/index
+---
+2025/08/29 15:38:46 [error] [exception.CHttpException.400] CHttpException: Your request is invalid. in C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php:337
+Stack trace:
+#0 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#2 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php(282): CController->run('update')
+#9 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php(141): CWebApplication->runController('post/update/4')
+#10 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 C:\xampp74\htdocs\blogmanagement\index.php(17): CApplication->run()
+#12 {main}
+REQUEST_URI=/blogmanagement/index.php/post/update/4
+HTTP_REFERER=http://localhost/blogmanagement/index.php/post/index
+---
+2025/08/29 15:39:12 [error] [exception.CHttpException.400] CHttpException: Your request is invalid. in C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php:337
+Stack trace:
+#0 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#2 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php(282): CController->run('update')
+#9 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php(141): CWebApplication->runController('post/update/11')
+#10 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 C:\xampp74\htdocs\blogmanagement\index.php(17): CApplication->run()
+#12 {main}
+REQUEST_URI=/blogmanagement/index.php/post/update/11
+HTTP_REFERER=http://localhost/blogmanagement/index.php/post
+---
+2025/08/29 15:39:23 [error] [exception.CHttpException.400] CHttpException: Your request is invalid. in C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php:337
+Stack trace:
+#0 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#2 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php(282): CController->run('update')
+#9 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php(141): CWebApplication->runController('post/update/11')
+#10 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 C:\xampp74\htdocs\blogmanagement\index.php(17): CApplication->run()
+#12 {main}
+REQUEST_URI=/blogmanagement/index.php/post/update/11
+HTTP_REFERER=http://localhost/blogmanagement/index.php/post
+---
+2025/08/29 15:40:26 [error] [exception.CHttpException.400] CHttpException: Your request is invalid. in C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php:337
+Stack trace:
+#0 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#2 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php(282): CController->run('update')
+#9 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php(141): CWebApplication->runController('post/update/11')
+#10 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 C:\xampp74\htdocs\blogmanagement\index.php(17): CApplication->run()
+#12 {main}
+REQUEST_URI=/blogmanagement/index.php/post/update/11
+HTTP_REFERER=http://localhost/blogmanagement/index.php/post
+---
+2025/08/29 15:41:28 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "index.php". in C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php(141): CWebApplication->runController('index.php')
+#1 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\xampp74\htdocs\blogmanagement\index.php(17): CApplication->run()
+#3 {main}
+REQUEST_URI=/blogmanagement/index.php/index.php?r=post/index
+---
+2025/08/29 15:41:53 [error] [exception.CHttpException.400] CHttpException: Your request is invalid. in C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php:337
+Stack trace:
+#0 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#2 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php(282): CController->run('update')
+#9 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php(141): CWebApplication->runController('post/update/11')
+#10 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 C:\xampp74\htdocs\blogmanagement\index.php(17): CApplication->run()
+#12 {main}
+REQUEST_URI=/blogmanagement/index.php/post/update/11
+HTTP_REFERER=http://localhost/blogmanagement/index.php/post/11
+---
+2025/08/29 15:42:10 [error] [exception.CHttpException.400] CHttpException: Your request is invalid. in C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php:337
+Stack trace:
+#0 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#2 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php(282): CController->run('update')
+#9 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php(141): CWebApplication->runController('post/update/11')
+#10 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 C:\xampp74\htdocs\blogmanagement\index.php(17): CApplication->run()
+#12 {main}
+REQUEST_URI=/blogmanagement/index.php/post/update/11
+HTTP_REFERER=http://localhost/blogmanagement/index.php/post/11
+---
+2025/08/29 15:45:28 [error] [exception.CHttpException.400] CHttpException: The CSRF token could not be verified. in C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CHttpRequest.php:1400
+Stack trace:
+#0 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CComponent.php(559): CHttpRequest->validateCsrfToken(Object(CEvent))
+#1 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CApplication.php(212): CComponent->raiseEvent('onbeginrequest', Object(CEvent))
+#2 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CApplication.php(183): CApplication->onBeginRequest(Object(CEvent))
+#3 C:\xampp74\htdocs\blogmanagement\index.php(17): CApplication->run()
+#4 {main}
+REQUEST_URI=/blogmanagement/index.php?r=post/delete&id=11
+HTTP_REFERER=http://localhost/blogmanagement/index.php?r=post/view&id=11
+---
+2025/08/29 15:56:42 [error] [exception.CHttpException.403] CHttpException: You are not allowed to update this post. in C:\xampp74\htdocs\blogmanagement\protected\controllers\PostController.php:192
+Stack trace:
+#0 C:\xampp74\htdocs\blogmanagement\protected\controllers\PostController.php(117): PostController->loadModel('11')
+#1 [internal function]: PostController->actionUpdate('11')
+#2 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\actions\CAction.php(114): ReflectionMethod->invokeArgs(Object(PostController), Array)
+#3 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(PostController), Object(ReflectionMethod), Array)
+#4 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#8 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php(282): CController->run('update')
+#13 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php(141): CWebApplication->runController('post/update')
+#14 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#15 C:\xampp74\htdocs\blogmanagement\index.php(17): CApplication->run()
+#16 {main}
+REQUEST_URI=/blogmanagement/index.php?r=post/update&id=11
+HTTP_REFERER=http://localhost/blogmanagement/index.php?r=post/index
+---
+2025/08/29 15:56:48 [error] [exception.CHttpException.403] CHttpException: You are not allowed to update this post. in C:\xampp74\htdocs\blogmanagement\protected\controllers\PostController.php:192
+Stack trace:
+#0 C:\xampp74\htdocs\blogmanagement\protected\controllers\PostController.php(117): PostController->loadModel('4')
+#1 [internal function]: PostController->actionUpdate('4')
+#2 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\actions\CAction.php(114): ReflectionMethod->invokeArgs(Object(PostController), Array)
+#3 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(PostController), Object(ReflectionMethod), Array)
+#4 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#8 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php(282): CController->run('update')
+#13 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php(141): CWebApplication->runController('post/update')
+#14 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#15 C:\xampp74\htdocs\blogmanagement\index.php(17): CApplication->run()
+#16 {main}
+REQUEST_URI=/blogmanagement/index.php?r=post/update&id=4
+HTTP_REFERER=http://localhost/blogmanagement/index.php?r=post/index
+---
+2025/08/29 15:58:17 [error] [exception.CHttpException.403] CHttpException: You are not authorized to perform this action. in C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\auth\CAccessControlFilter.php:183
+Stack trace:
+#0 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(WebUser), 'You are not aut...')
+#1 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php(282): CController->run('admin')
+#8 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php(141): CWebApplication->runController('post/admin')
+#9 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\xampp74\htdocs\blogmanagement\index.php(17): CApplication->run()
+#11 {main}
+REQUEST_URI=/blogmanagement/index.php?r=post/admin
+HTTP_REFERER=http://localhost/blogmanagement/index.php?r=post/create
+---
+2025/08/29 15:58:35 [error] [exception.CHttpException.403] CHttpException: You are not allowed to update this post. in C:\xampp74\htdocs\blogmanagement\protected\controllers\PostController.php:192
+Stack trace:
+#0 C:\xampp74\htdocs\blogmanagement\protected\controllers\PostController.php(117): PostController->loadModel('13')
+#1 [internal function]: PostController->actionUpdate('13')
+#2 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\actions\CAction.php(114): ReflectionMethod->invokeArgs(Object(PostController), Array)
+#3 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(PostController), Object(ReflectionMethod), Array)
+#4 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#8 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php(282): CController->run('update')
+#13 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php(141): CWebApplication->runController('post/update')
+#14 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#15 C:\xampp74\htdocs\blogmanagement\index.php(17): CApplication->run()
+#16 {main}
+REQUEST_URI=/blogmanagement/index.php?r=post/update&id=13
+HTTP_REFERER=http://localhost/blogmanagement/index.php?r=post/view&id=13
+---
+2025/08/29 16:03:05 [error] [exception.CHttpException.403] CHttpException: You are not allowed to update this post. in C:\xampp74\htdocs\blogmanagement\protected\controllers\PostController.php:191
+Stack trace:
+#0 C:\xampp74\htdocs\blogmanagement\protected\controllers\PostController.php(117): PostController->loadModel('13')
+#1 [internal function]: PostController->actionUpdate('13')
+#2 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\actions\CAction.php(114): ReflectionMethod->invokeArgs(Object(PostController), Array)
+#3 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(PostController), Object(ReflectionMethod), Array)
+#4 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#8 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php(282): CController->run('update')
+#13 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php(141): CWebApplication->runController('post/update')
+#14 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#15 C:\xampp74\htdocs\blogmanagement\index.php(17): CApplication->run()
+#16 {main}
+REQUEST_URI=/blogmanagement/index.php?r=post/update&id=13
+HTTP_REFERER=http://localhost/blogmanagement/index.php?r=post/view&id=13
+---
+2025/08/29 16:04:03 [error] [exception.CHttpException.403] CHttpException: You are not allowed to update this post. in C:\xampp74\htdocs\blogmanagement\protected\controllers\PostController.php:191
+Stack trace:
+#0 C:\xampp74\htdocs\blogmanagement\protected\controllers\PostController.php(117): PostController->loadModel('13')
+#1 [internal function]: PostController->actionUpdate('13')
+#2 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\actions\CAction.php(114): ReflectionMethod->invokeArgs(Object(PostController), Array)
+#3 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(PostController), Object(ReflectionMethod), Array)
+#4 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#8 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php(282): CController->run('update')
+#13 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php(141): CWebApplication->runController('post/update')
+#14 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#15 C:\xampp74\htdocs\blogmanagement\index.php(17): CApplication->run()
+#16 {main}
+REQUEST_URI=/blogmanagement/index.php?r=post/update&id=13
+HTTP_REFERER=http://localhost/blogmanagement/index.php?r=post/index
+---
+2025/08/29 16:08:26 [error] [exception.CHttpException.403] CHttpException: You are not allowed to update this post. in C:\xampp74\htdocs\blogmanagement\protected\controllers\PostController.php:191
+Stack trace:
+#0 C:\xampp74\htdocs\blogmanagement\protected\controllers\PostController.php(117): PostController->loadModel('11')
+#1 [internal function]: PostController->actionUpdate('11')
+#2 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\actions\CAction.php(114): ReflectionMethod->invokeArgs(Object(PostController), Array)
+#3 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(PostController), Object(ReflectionMethod), Array)
+#4 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#8 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php(282): CController->run('update')
+#13 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\web\CWebApplication.php(141): CWebApplication->runController('post/update')
+#14 C:\xampp74\frameworks\yii-1.1.31.34bac5\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#15 C:\xampp74\htdocs\blogmanagement\index.php(17): CApplication->run()
+#16 {main}
+REQUEST_URI=/blogmanagement/index.php?r=post/update&id=11
+HTTP_REFERER=http://localhost/blogmanagement/index.php?r=post/index
+---
